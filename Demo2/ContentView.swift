@@ -7,24 +7,28 @@
 
 import SwiftUI
 
+struct PressCount {
+    var count1 = 0
+    var count2 = 0
+}
+
 struct ContentView: View {
     // State should always be private
-    @State private var button1Count = 0
-    @State private var button2Count = 0
+    @State private var pressCounts = PressCount()
 
     var body: some View {
         VStack {
-            Text("Button 1 pressed \(button1Count) times")
+            Text("Button 1 pressed \(pressCounts.count1) times")
             Button {
-                button1Count += 1
+                pressCounts.count1 += 1
             } label: {
                 Text("Button 1")
             }
             .padding([.top, .bottom], 8)
 
-            Text("Button 2 pressed \(button2Count) times")
+            Text("Button 2 pressed \(pressCounts.count2) times")
             Button {
-                button2Count += 1
+                pressCounts.count2 += 1
             } label: {
                 Text("Button 2")
             }
