@@ -27,15 +27,15 @@ struct ButtonCount: View {
 
 struct ContentView: View {
     // State should always be private
-    @State private var pressCounts = Array(repeating: 0, count: 3)
+    @State private var pressCounts = Array(repeating: 0, count: 5)
 
     var totalPresses: Int { pressCounts.reduce(0, +) }
 
     var body: some View {
         VStack {
-            ButtonCount(buttonName: "Button1", pressCount: $pressCounts[0])
-            ButtonCount(buttonName: "Button2", pressCount: $pressCounts[1])
-            ButtonCount(buttonName: "Button3", pressCount: $pressCounts[2])
+            ForEach(pressCounts.indices, id: \.self) { idx in
+                ButtonCount(buttonName: "Button\(idx+1)", pressCount: $pressCounts[idx])
+            }
             Text("Total Counts \(totalPresses)")
         }
     }
