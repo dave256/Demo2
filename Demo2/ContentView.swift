@@ -9,16 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     // State should always be private
-    @State private var numPressed = 0
+    @State private var button1Count = 0
+    @State private var button2Count = 0
 
     var body: some View {
         VStack {
-            Text("Button pressed \(numPressed) times")
+            Text("Button 1 pressed \(button1Count) times")
             Button {
-                numPressed += 1
+                button1Count += 1
             } label: {
-                Text("Press Me")
+                Text("Button 1")
             }
+            .padding([.top, .bottom], 8)
+
+            Text("Button 2 pressed \(button2Count) times")
+            Button {
+                button2Count += 1
+            } label: {
+                Text("Button 2")
+            }
+            .padding([.top, .bottom], 8)
         }
     }
 }
