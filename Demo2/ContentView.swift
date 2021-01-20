@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    // State should always be private
+    @State private var numPressed = 0
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("Button pressed \(numPressed) times")
+            Button {
+                numPressed += 1
+            } label: {
+                Text("Press Me")
+            }
+        }
     }
 }
 
